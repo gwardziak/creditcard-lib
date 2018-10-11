@@ -1,4 +1,4 @@
-import package pl.rajca.creditcard;
+package pl.rajca.creditcard;
 
 import org.junit.Assert;
 import org.junit.Test;
