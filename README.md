@@ -8,3 +8,8 @@ Hello Java and GIT
     -if card not blocked
     -can afford
 -repay debt
+
+tech requirement
+----------------
+-java > 8
+-maven
