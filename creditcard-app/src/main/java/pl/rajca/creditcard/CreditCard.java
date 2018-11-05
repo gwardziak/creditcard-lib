@@ -1,12 +1,9 @@
 package pl.rajca.creditcard;
 
 class CreditCard {
-<<<<<<< HEAD
     private boolean blocked = true;
-=======
     private double balance = 0;
     private double limit;
->>>>>>> withdraw_feature
     
     public void assignLimit(double money) {
         balance = money;
@@ -19,14 +16,13 @@ class CreditCard {
     }
     
     public double getLimit() {
-        return 2000;
+        return limit;
     }
     
-<<<<<<< HEAD
     public void block(){
         this.blocked = true;
     }
-=======
+
     public void withdraw(double money) {
         this.balance = balance - money;
     }
@@ -35,5 +31,13 @@ class CreditCard {
         return balance;
     }
     
->>>>>>> withdraw_feature
+    public void repay(double money) {
+        if(balance >= money) {
+            this.limit = limit - money;
+            balance = balance - money;
+        }
+    } 
+
+        
+    
 }
