@@ -35,6 +35,22 @@ public class CreditCardTest {
     }
     
     
+    
+    @Test(expected = NotEnoughMoneyException.class)
+    public void cantWithdrawWhenWhenOverTheLimit() throws Exception{
+        CreditCard card = new CreditCard();
+        card.assignLimit(money(200));
+        card.withdraw(money(300));
+    }
+    
+    @Test(expected = TransactionOnBlockedCardException.class)
+    public void cantWithdrawFromBlocked() {
+        CreditCard card = new CreditCard();
+        card.assignLimit(money(100));
+        card.block();
+        card.withdraw(money(50));
+    }
+    
     @Test
     public void repayDebt() {
         CreditCard card = new CreditCard();
