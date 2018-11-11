@@ -54,14 +54,15 @@ public class CreditCardTest {
         card.withdraw(50);
     }
     
+    
     @Test
     public void repayDebt() {
         CreditCard card = new CreditCard();
-        card.assignLimit(2500);
+         card.assignLimit(2500);
+
         card.withdraw(1000);
         card.withdraw(1000);
         card.repay(500);
-    
         Assert.assertTrue(card.getLimit() == 2000);
     }
 }

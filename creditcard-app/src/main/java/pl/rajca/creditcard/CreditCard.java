@@ -1,7 +1,7 @@
 package pl.rajca.creditcard;
 
 class CreditCard {
-    private boolean blocked = true;
+    private boolean blocked = false;
     private double balance = 0;
     private double limit;
     private String cardNumber;
