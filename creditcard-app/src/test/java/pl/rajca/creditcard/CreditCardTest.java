@@ -3,6 +3,8 @@ package pl.rajca.creditcard;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static pl.rajca.creditcard.TestHelper.assertThrows;
+
 public class CreditCardTest {
 
     @Test
@@ -37,18 +39,19 @@ public class CreditCardTest {
     
     
     @Test(expected = NotEnoughMoneyException.class)
-    public void cantWithdrawWhenWhenOverTheLimit() throws Exception{
+    public void cantWithdrawWhenCantAfford() {
         CreditCard card = new CreditCard();
-        card.assignLimit(money(200));
-        card.withdraw(money(300));
+        card.assignLimit(2000);
+        card.withdraw(3000);
+        Assert.assertTrue(card.getLimit() == 2000);
     }
     
     @Test(expected = TransactionOnBlockedCardException.class)
     public void cantWithdrawFromBlocked() {
         CreditCard card = new CreditCard();
-        card.assignLimit(money(100));
+        card.assignLimit(100);
         card.block();
-        card.withdraw(money(50));
+        card.withdraw(50);
     }
     
     @Test
