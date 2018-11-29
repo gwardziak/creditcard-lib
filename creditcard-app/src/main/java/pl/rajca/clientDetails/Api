@@ -1,0 +1,15 @@
+curl -X POST localhost:8005/clients -d '
+    { "firstName" : "Sebastian" }
+'
+
+curl -X POST localhost:8005/clients -d '
+    { "firstName": "Sebastian" }
+'
+
+
+curl -X GET localhost:8005/clients
+
+[
+ { "firstName" : "Sebastian" },
+ { "firstName": "Sebastian" }
+]
